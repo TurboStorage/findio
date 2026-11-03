@@ -1,0 +1,135 @@
+# OUI prefix → vendor. Format: 24-bit hex (no separators), vendor name.
+# Curated starter set for FindIO — servers, BMC silicon, network gear, common client hardware.
+# Users can override with ~/.findio/oui.csv (full IEEE dump format supported).
+# Source: IEEE MA-L registry snapshots. Non-exhaustive.
+prefix,vendor
+# --- Server / workstation OEMs --------------------------------------------
+002590,Super Micro
+003048,Super Micro
+3CECEF,Super Micro
+AC1F6B,Super Micro
+0CC47A,Super Micro
+7CC255,Super Micro
+3CA82A,HPE
+001A4B,HPE
+00215A,HPE
+D48564,HPE
+FC15B4,HPE
+9457A5,HPE
+9440C9,HP
+0017A4,HP
+0023B0,HP
+003056,HP
+0015C5,Dell
+001422,Dell
+F8BC12,Dell
+F48E38,Dell
+544810,Dell
+B083FE,Dell
+842B2B,Dell
+24B6FD,Dell
+009027,Intel
+001320,Intel
+000347,Intel
+D8CB8A,Intel
+482AE3,Intel
+E029E8,Intel
+A0369F,Intel
+1CBFCE,Intel
+ACD564,Intel
+00247E,Lenovo
+E83935,Lenovo
+3C18A0,Lenovo
+70F84E,Lenovo
+# --- BMC silicon ----------------------------------------------------------
+00ECF6,ASPEED
+080087,ASPEED
+002655,Nuvoton
+# --- Motherboard OEMs (consumer / prosumer workstation) -------------------
+001FC6,ASUS
+2C56DC,ASUS
+B06EBF,ASUS
+048D38,ASUS
+D45D64,ASUS
+2C4D54,ASUS
+001485,Gigabyte
+B42E99,Gigabyte
+1C1B0D,Gigabyte
+18C04D,Gigabyte
+1458D0,Gigabyte
+7085C2,ASRock
+D05099,ASRock
+70850A,ASRock
+6451060,MSI
+E04CEC,MSI
+30456E,MSI
+# --- Networking / BMC-adjacent --------------------------------------------
+001AA1,Cisco
+001DA1,Cisco
+002255,Cisco
+3C8AB0,Juniper
+0019E2,Juniper
+245A4C,Ubiquiti
+44D9E7,Ubiquiti
+788A20,Ubiquiti
+FCECDA,Ubiquiti
+00146C,Netgear
+28C68E,Netgear
+001478,TP-Link
+50C7BF,TP-Link
+D850E6,TP-Link
+E848B8,TP-Link
+# --- NIC / Transceiver vendors --------------------------------------------
+00E04C,Realtek
+525400,QEMU / KVM virtual
+001018,Broadcom
+000AF7,Broadcom
+001B21,Mellanox
+0002C9,Mellanox
+B8599F,Mellanox
+# --- Apple ---------------------------------------------------------------
+D011E5,Apple
+D8A25E,Apple
+3C22FB,Apple
+A4D1D2,Apple
+7831C1,Apple
+F02475,Apple
+8866A5,Apple
+B8782E,Apple
+1CF64C,Apple
+149877,Apple
+4865EE,Apple
+10FFE0,Apple
+1C57DC,Apple
+A483E7,Apple
+9C8ECD,Apple
+008A76,Apple
+A4FC14,Apple
+5C1BF4,Apple
+C0F535,Apple
+1432C7,Apple
+809698,Apple
+# --- Synology NAS --------------------------------------------------------
+001132,Synology
+# --- ASUS (routers) ------------------------------------------------------
+C87F54,ASUS
+# --- Printers (Brother) --------------------------------------------------
+FC017C,Brother
+30C9AB,Brother
+# --- Tesla ---------------------------------------------------------------
+0C298F,Tesla
+# --- TP-Link (smart switch) ----------------------------------------------
+98BA5F,TP-Link
+# --- HP / HPE additional -------------------------------------------------
+E454E8,HP
+# --- Samsung / mobile / TV -----------------------------------------------
+0007AB,Samsung
+0012FB,Samsung
+5442A7,Samsung
+94EBCD,Google
+28BD89,Google
+8871E5,Amazon
+F0272D,Amazon
+38F73D,Amazon
+# --- Sentinels used by scans / randomization ------------------------------
+FFFFFF,Broadcast

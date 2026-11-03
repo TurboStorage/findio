@@ -1,0 +1,20 @@
+$ findio scan --iface eth0 --cidr 192.0.2.0/24
+# eth0 192.0.2.0/24  2026-01-01T10:00:05+00:00 -> 2026-01-01T10:00:07+00:00
+IP               MAC                LABEL          HOSTNAME                 VENDOR                  
+----------------------------------------------------------------------------------------------------
+192.0.2.1        00:00:5E:00:53:01                 gateway.example.test     Example Networks        
+192.0.2.20       00:00:5E:00:53:14                 printer.example.test     Example Print           
+192.0.2.77       00:00:5E:00:53:4D                                          AMI Megarac             
+# 3 device(s)
+
+$ findio diff --against pre-plug
+# diff vs baseline 'pre-plug'
+  NEW        192.0.2.77       00:00:5E:00:53:4D 
+  LOST       192.0.2.5        00:00:5E:00:53:05 
+# new=1 changed=0 lost=1 returned=0 unchanged=2
+
+$ findio label 00:00:5E:00:53:4D bench-2
+00:00:5E:00:53:4D -> bench-2
+
+$ findio pick --label bench-2
+192.0.2.77

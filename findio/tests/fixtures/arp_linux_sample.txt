@@ -1,0 +1,10 @@
+192.0.2.1 dev enp3s0 lladdr aa:bb:cc:dd:ee:ff REACHABLE
+192.0.2.17 dev enp3s0  FAILED
+192.0.2.42 dev enp3s0 lladdr 12:34:56:78:9a:bc STALE
+192.0.2.50 dev enp3s0 lladdr 00:11:22:33:44:55 PERMANENT
+192.0.2.99 dev enp3s0 lladdr 98:76:54:32:10:00 DELAY
+192.0.2.123 dev enp3s0 lladdr 1c:2d:3e:4f:50:61 PROBE
+203.0.113.1 dev enp4s0 lladdr de:ad:be:ef:00:01 REACHABLE
+203.0.113.10 dev enp4s0 lladdr 98:76:54:32:10:aa PERMANENT
+169.254.0.1 dev enp3s0  INCOMPLETE
+224.0.0.251 dev enp3s0 lladdr 01:00:5e:00:00:fb NOARP
