@@ -145,13 +145,21 @@ class DeviceRegistry:
 
     def __init__(self, state_dir: Optional[str] = None) -> None:
         self.state_dir = _resolve_state_dir(state_dir)
-        self.state_dir.mkdir(parents=True, exist_ok=True)
+        self.state_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+        try:
+            os.chmod(self.state_dir, 0o700)
+        except OSError:
+            pass
         self.db_path = self.state_dir / "state.db"
-        self._conn = sqlite3.connect(self.db_path, isolation_level=None)  # autocommit
-        self._conn.row_factory = sqlite3.Row
-        self._conn.execute("PRAGMA foreign_keys = ON")
-        self._conn.execute("PRAGMA journal_mode = WAL")
-        self._migrate()
+        old_umask = os.umask(0o077)  # state.db and its -wal/-shm files: 0600
+        try:
+            self._conn = sqlite3.connect(self.db_path, isolation_level=None)  # autocommit
+            self._conn.row_factory = sqlite3.Row
+            self._conn.execute("PRAGMA foreign_keys = ON")
+            self._conn.execute("PRAGMA journal_mode = WAL")
+            self._migrate()
+        finally:
+            os.umask(old_umask)
 
     # --- lifecycle --------------------------------------------------------- #
 

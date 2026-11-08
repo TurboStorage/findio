@@ -128,9 +128,14 @@ def resolve_vendor(mac: Optional[str]) -> Optional[str]:
 # --------------------------------------------------------------------------- #
 
 
+_CONTROL_CHARS = re.compile(r"[\x00-\x1f\x7f-\x9f]")
+
+
 def _rdns_raw(ip: str) -> Optional[str]:
     try:
         host, *_ = socket.gethostbyaddr(ip)
+        # Names come from the network: drop control chars (terminal escape injection).
+        host = _CONTROL_CHARS.sub("", host or "")
         return host or None
     except (socket.herror, socket.gaierror, OSError):
         return None
@@ -172,7 +177,8 @@ def grab_banner(
     except Exception:  # noqa: BLE001
         return None
     # SSH banners end with \r\n; take the first line only.
-    return text.splitlines()[0] if text else None
+    line = text.splitlines()[0] if text else ""
+    return _CONTROL_CHARS.sub("", line) or None
 
 
 # --------------------------------------------------------------------------- #
